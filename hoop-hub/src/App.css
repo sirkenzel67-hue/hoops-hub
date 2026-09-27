@@ -1,0 +1,30 @@
+/* app-wide feel */
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* quarter + controls row */
+.container > h1 { font-size: 1.6rem; margin-bottom: 1rem; }
+.container > button {
+  margin: 0 0.3rem 1.5rem;
+}
+.container > button:last-of-type {
+  background: linear-gradient(135deg, #666, #333);
+  color: #eee;
+}
+
+/* the two scoreboards side by side */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* individual scoreboard card */
+.container > div,
+.container > * h1:not(.container > h1) {
+  /* placeholder, real card styling below via ScoreBoard wrapper */
+}

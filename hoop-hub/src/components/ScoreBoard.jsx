@@ -23,17 +23,19 @@
 //   );
 // }
 
+import { useGame } from "../useGame";
 
-export default function ScoreBoard({team, score, dispatch}) {
-   
-
+export default function ScoreBoard({team}) {
+  const { state, dispatch } = useGame();
   return (
-    <>
-     <h1>Score Board for team {team} score: {score}</h1>
-     <button onClick={() => dispatch({type: "ADD_POINTS", team, points: 1})}>+1</button>
-     <button onClick={() => dispatch({type: "ADD_POINTS", team, points: 2})}>+2</button>
-     <button onClick={() => dispatch({type: "ADD_POINTS", team, points: 3})}>+3</button>
-
-    </>
-  )
+    <div className="scoreboard">
+      <h2>{team === "home" ? "Home" : "Away"}</h2>
+      <p className="score-number">{state[team]}</p>
+      <div className="btn-row">
+        <button onClick={() => dispatch({ type: "ADD_POINTS", team, points: 1 })}>+1</button>
+        <button onClick={() => dispatch({ type: "ADD_POINTS", team, points: 2 })}>+2</button>
+        <button onClick={() => dispatch({ type: "ADD_POINTS", team, points: 3 })}>+3</button>
+      </div>
+    </div>
+  );
 }
